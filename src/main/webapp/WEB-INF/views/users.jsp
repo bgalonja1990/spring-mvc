@@ -83,12 +83,13 @@
 <br>
 
 	<h3>Persons List</h3>
-<%-- <c:if test="${!empty users}"> --%>
+<c:if test="${!empty users}">
     <table class="tg">
     <tr>
         <th width="80">User ID</th>
         <th width="120">First Name</th>
         <th width="120">Last Name</th>
+        <th width="120">Groups</th>
         <th width="60">Edit</th>
         <th width="60">Delete</th>
     </tr>
@@ -97,11 +98,14 @@
             <td>${user.id}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
+            <td>
+            	<c:forEach items="${user.groups}" var="group">${group.name}&nbsp;</c:forEach>
+            </td>
             <td><a href="<c:url value='/users/edit/${user.id}' />" >Edit</a></td>
             <td><a href="<c:url value='/users/remove/${user.id}' />" >Delete</a></td>
         </tr>
     </c:forEach>
     </table>
-<%-- </c:if> --%>
+</c:if> 
 </body>
 </html>

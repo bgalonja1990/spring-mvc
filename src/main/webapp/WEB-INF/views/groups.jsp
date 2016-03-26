@@ -57,7 +57,7 @@
 </form:form>
 <br>
 
-	<h3>Persons List</h3>
+	<h3>Group List</h3>
 <c:if test="${!empty groups}">
     <table class="tg">
     <tr>

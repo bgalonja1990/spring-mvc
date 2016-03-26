@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bojan.registry.dao.UserDao;
 import org.bojan.registry.model.User;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,9 @@ public class UserDaoImpl implements UserDao{
 
 	public User getUserById(long id) {
 		// TODO Auto-generated method stub
-		return (User) this.getSession().get(User.class, id);
+		User user = (User) this.getSession().get(User.class, id);
+		Hibernate.initialize(user.getGroups());
+		return user;
 	}
 
 
